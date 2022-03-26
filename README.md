@@ -6,7 +6,7 @@
 
 <p>&nbsp</p>
 
-<p>An instant messager application, made with Next JS in the front end and Firebase in the back end. You can view a video <a href='https://www.youtube.com/watch?v=DXW1n6yU4QU'>here</a> or click the <strong>website</strong> shield to access it on vercel!</p>
+<p>An instant messager application made as a final project for Harvard's CS50 course. This project was made with Next JS in the front end and Firebase in the back end. You can view a video <a href='https://www.youtube.com/watch?v=DXW1n6yU4QU'>here</a> or click the <strong>website</strong> shield to access it on vercel!</p>
 
 <p>&nbsp</p>
 
