@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     background-color: transparent;
-    z-index: 2;
+    z-index: 9999999;
 }
 
 .modal {
@@ -18,7 +18,7 @@
     padding: 20px;
     border-radius: 16px;
     box-shadow:5px 5px 20px #b0b0b0, -5px -5px 20px #fff;
-    z-index: 3;
+    z-index: 999999999;
 }
 
 .modaltitle {
@@ -64,4 +64,18 @@
 
 .modalbutton:hover {
     background-color: rgba(0,0,0,0.8);
+}
+
+@media (max-width: 760px) {
+    .overlay {
+        z-index: 99999998;
+        height: 100%;
+        width: 100%;
+    }
+
+    .modal {
+        left: 0;
+        top: 40%;
+        width: 100vw;
+    }
 }

@@ -1,0 +1,24 @@
+.container {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+.content {
+    width: 500px;
+    box-shadow: 5px 5px 20px #b0b0b0, -5px -5px 20px #fff;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .container {
+        left: 0;
+    }
+}
+

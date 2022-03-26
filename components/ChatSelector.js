@@ -11,9 +11,10 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollection} from 'react-firebase-hooks/firestore'
 import styles from './ChatSelector.module.css'
 
-function ChatSelector() {
+function ChatSelector({getModalValue}) {
   const [modalControl, setModalControl] = useState(false);
   const [chatsControl, setChatsControl] = useState(false);
+  const [searchQuery, getSearchQuery] = useState('');
   
   const [user] = useAuthState(auth)
   const userChat = db.collection('chats').where('users', 'array-contains', user.email)
@@ -24,7 +25,9 @@ function ChatSelector() {
   const addChat = (input) => {
     if (!input) return null;
 
-    if(EmailValidator.validate(input) && !chatExists && input !== user.email) {
+    console.log(EmailValidator.validate(input))
+    if(EmailValidator.validate(input) && !chatExists(input) && input !== user.email) {
+      console.log('pass email validation')
       db.collection('chats').add({
         users: [user.email, input]
       })
@@ -38,16 +41,18 @@ function ChatSelector() {
 
   const closeModal = () => {
     setModalControl(false);
+    getModalValue(false);
   }
 
   const handleChats = () => {
     setChatsControl((prevState) => !prevState);
   }
 
+
   return (
     <>
       <div className={chatsControl ? styles.arrow : styles.arrowinverted} onClick={handleChats}>
-        <ArrowBackIosNewIcon sx={{width: '50px', height: '50px'}} />
+        <ArrowBackIosNewIcon sx={modalControl ?{ width: '50px', height: '50px', filter: 'blur(3px)'} : {width: '50px', height: '50px'}} />
       </div>
       <div className={chatsControl ? styles.container : styles.containerclosed} style={modalControl ? {filter: 'blur(3px)'} : {}}>
         <div className={styles.profileinfo}>
@@ -58,12 +63,7 @@ function ChatSelector() {
           </div>
         </div>
 
-        <div className={styles.search}>
-          <SearchIcon/>
-          <input type='text' placeholder='Seach in chats' className={styles.searchinput}/>
-        </div>
-
-        <button className={styles.addchatbutton} onClick={() => {setModalControl(true)}}>
+        <button className={styles.addchatbutton} onClick={() => {setModalControl(true); getModalValue(true)}}>
           <AddIcon className={styles.addicon}/>
           START A NEW CHAT
         </button>

@@ -20,11 +20,13 @@ function Chat({id, users}) {
     
 
   return (
-    <div className={styles.container} onClick={enterChat}>
-        {thisuser ? <img src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '50px', height: '50px'}}/>
-        }
-        <p className={styles.name}>{thisuser ? thisuser.name : email}</p>
-    </div>
+    <>
+      <div className={styles.container} onClick={enterChat}>
+          {thisuser ? <img src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '50px', height: '50px'}}/>
+          }
+          <p className={styles.name}>{thisuser ? thisuser.name : email}</p>
+      </div>
+    </>
   )
 }
 

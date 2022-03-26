@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import getEmail from '../lib/getEmail'
 import TimeAgo from 'timeago-react'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ChatView({chat, messages, thisuser}) {
     const [user] = useAuthState(auth)
@@ -17,7 +18,7 @@ function ChatView({chat, messages, thisuser}) {
     const [input, setInput] = useState('')
     const router = useRouter()
     const [messagesSnapshot] = useCollection(db.collection('chats').doc(router.query.id).collection('messages').orderBy('timestamp', 'asc'))
-    const endOfMessagesRef = useRef(null);
+    const endOfMessagesRef = useRef(null)
 
     const scrollToBottom = () => {
         endOfMessagesRef.current.scrollIntoView({
@@ -68,6 +69,11 @@ function ChatView({chat, messages, thisuser}) {
         scrollToBottom()
     }
 
+    const deleteChat = () => {
+        router.push('/')
+        db.collection('chats').doc(router.query.id).delete()
+    } 
+
     useEffect(()=> {scrollToBottom()},[])
     return (
     <div className={styles.container}>
@@ -75,16 +81,22 @@ function ChatView({chat, messages, thisuser}) {
             {thisuser ? <img src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '70px', height: '70px'}}/>}
 
             <div className={styles.headerinfo}>
-                <h3>{thisuser? thisuser.name : email}</h3>
-                {thisuser && (
-                    <p>Last active: {thisuser?.lastSeen?.toDate() ? 
-                    (<TimeAgo datetime={thisuser?.lastSeen?.toDate()}/>)  :
-                     'Never' }
-                    </p>
-                    )
-                }
+                <div className={styles.textinfo}>
+
+                    <h3>{thisuser? thisuser.name : email}</h3>
+                    {thisuser && (
+                        <p>Last active: {thisuser?.lastSeen?.toDate() ? 
+                        (<TimeAgo datetime={thisuser?.lastSeen?.toDate()}/>)  :
+                        'Never' }
+                        </p>
+                        )
+                    }
+
+                </div>
                 
+                <DeleteIcon className={styles.deleteicon} onClick={deleteChat}/>
             </div>
+        
 
 
 

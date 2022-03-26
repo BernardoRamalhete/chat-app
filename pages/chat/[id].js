@@ -13,13 +13,15 @@ function Chat({chat, messages}) {
     const [userSnapshot] = useCollection(db.collection('users').where('email', '==', email ))
     const thisuser = userSnapshot?.docs?.[0]?.data()
 
+    const getModalValue = (value) => {
+    }
 
   return (
     <div className={styles.mainconteiner}>
         <Head>
             <title>Chat with {thisuser? thisuser.name : email}</title>
         </Head>
-        <ChatSelector />
+        <ChatSelector getModalValue={getModalValue}/>
         <div className={styles.chatconteiner}>
             <ChatView chat={chat} messages={messages} thisuser={thisuser}/>
         </div>

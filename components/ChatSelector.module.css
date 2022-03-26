@@ -129,12 +129,13 @@
     }
 
     .container,
-.containerclosed {
-    width: 95vw;
+    .containerclosed {
+    width: 100vw;
+    height: 124%;
 }
 
-.containerclosed {
-    left: -100vw
+    .containerclosed {
+    left: -110vw
 }
 
 
