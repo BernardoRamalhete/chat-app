@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollection } from 'react-firebase-hooks/firestore'
 import ChatSelector from '../../components/ChatSelector'
@@ -12,8 +13,13 @@ function Chat({chat, messages}) {
     const email = getEmail(chat.users, user)
     const [userSnapshot] = useCollection(db.collection('users').where('email', '==', email ))
     const thisuser = userSnapshot?.docs?.[0]?.data()
+    const [onFocus, setOnFocus] = useState(true)
 
     const getModalValue = (value) => {
+    }
+
+    const passOnFocus = (value) => {
+        setOnFocus(value)
     }
 
   return (
@@ -21,9 +27,9 @@ function Chat({chat, messages}) {
         <Head>
             <title>Chat with {thisuser? thisuser.name : email}</title>
         </Head>
-        <ChatSelector getModalValue={getModalValue}/>
+        <ChatSelector getModalValue={getModalValue} passOnFocus={passOnFocus}/>
         <div className={styles.chatconteiner}>
-            <ChatView chat={chat} messages={messages} thisuser={thisuser}/>
+            <ChatView chat={chat} messages={messages} thisuser={thisuser} onFocus={onFocus}/>
         </div>
 
     </div>

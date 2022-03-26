@@ -11,6 +11,10 @@ export default function Home() {
     setModalValue(value)
   }
 
+  const passOnFocus = (value) => {
+
+  }
+
   useEffect(()=> {console.log(modalValue)}, [modalValue])
 
   return (
@@ -24,7 +28,7 @@ export default function Home() {
       <div>
 
         <MainPageView modalValue={modalValue}/>
-        <ChatSelector getModalValue={getModalValue}/>
+        <ChatSelector getModalValue={getModalValue} passOnFocus={passOnFocus}/>
 
       </div>
     </div>

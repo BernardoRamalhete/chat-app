@@ -12,7 +12,7 @@ import getEmail from '../lib/getEmail'
 import TimeAgo from 'timeago-react'
 import DeleteIcon from '@mui/icons-material/Delete'
 
-function ChatView({chat, messages, thisuser}) {
+function ChatView({chat, messages, thisuser, onFocus}) {
     const [user] = useAuthState(auth)
     const email = getEmail(chat.users, user)
     const [input, setInput] = useState('')
@@ -39,6 +39,7 @@ function ChatView({chat, messages, thisuser}) {
                          timestamp: message.data().timestamp?.toDate().getTime()
                         }
                     }
+                    onFocus={onFocus}
                 />
             ))
         } else {

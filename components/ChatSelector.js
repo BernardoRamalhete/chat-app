@@ -11,10 +11,10 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import {useCollection} from 'react-firebase-hooks/firestore'
 import styles from './ChatSelector.module.css'
 
-function ChatSelector({getModalValue}) {
+function ChatSelector({getModalValue, passOnFocus}) {
   const [modalControl, setModalControl] = useState(false);
   const [chatsControl, setChatsControl] = useState(false);
-  const [searchQuery, getSearchQuery] = useState('');
+  const [onFocus, setOnFocus] = useState(true);
   
   const [user] = useAuthState(auth)
   const userChat = db.collection('chats').where('users', 'array-contains', user.email)
@@ -48,7 +48,15 @@ function ChatSelector({getModalValue}) {
     setChatsControl((prevState) => !prevState);
   }
 
-
+  document.addEventListener('visibilitychange', function(event) {
+    if(document.hidden) {
+      setOnFocus(false)
+      passOnFocus(false)
+    } else {
+      setOnFocus(true)
+      passOnFocus(true)
+    }
+  });
   return (
     <>
       <div className={chatsControl ? styles.arrow : styles.arrowinverted} onClick={handleChats}>
