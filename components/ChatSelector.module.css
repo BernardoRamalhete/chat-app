@@ -1,0 +1,141 @@
+
+.arrow,
+.arrowinverted {
+    z-index: 99999;
+    position: relative;
+    left: 420px;
+    top: 40vh;
+    background-color: #f0f0f0;
+    box-shadow: 5px 5px 20px #b0b0b0, -5px -5px 20px #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    align-items: center;
+    color: rgba(0,0,0, 0.8);
+    transition: all 1s ease;
+    opacity: 1;
+}
+
+.arrowinverted {
+    left: -25px;
+    transform: rotate(180deg);
+    opacity: 0.2;
+}
+.arrowinverted:hover {
+    opacity: 1;
+}
+
+.container,
+.containerclosed {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    margin: 15px;
+    padding-right: 20px;
+    width: 450px;
+    height: 100vh;
+    border-right: 1px solid rgba(0,0,0, 0.2);
+    transition: all 0.2s ease;
+    background-color: #f0f0f0;
+    box-shadow: 3px 3px 15px #b0b0b0, -3px -3px 15px #fff;
+    transition: all 1s ease;
+    z-index: 99998;
+}
+
+.containerclosed {
+    left: -500px;
+}
+
+.profileinfo {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    z-index: 1;
+}
+
+.userimage {
+    border-radius: 50%;
+    color: rgba(0,0,0, 0.3);
+    width: 70px;
+}
+
+.profiletext {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+    width: 100%
+}
+
+.profilename {
+    font-size: 30px;
+    font-weight: normal;
+}
+
+.logout {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout:hover {
+    opacity: 0.7;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.searchinput {
+    outline-width: 0;
+    border: none;
+    flex: 1;
+    background-color: transparent;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.searchinput::placeholder {
+    color: rgba(0,0,0, 0.5);
+}
+
+.addchatbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.addicon {
+    margin-right: 10px;
+}
+
+.addchatbutton:hover {
+    background-color: rgba(0,0,0,0.05)
+}
+
+@media (max-width: 760px) {
+    .arrow{
+        left: 85vw
+    }
+
+    .container,
+.containerclosed {
+    width: 95vw;
+}
+
+.containerclosed {
+    left: -100vw
+}
+
+
+}

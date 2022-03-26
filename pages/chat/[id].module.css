@@ -1,0 +1,12 @@
+.maincontainer {
+    display: flex;
+}
+
+.chatconteiner {
+    -ms-overflow-style: none;
+    scrollbar-width:none;
+}
+
+.chatconteiner::-webkit-scrollbar {
+    display: none;       
+}

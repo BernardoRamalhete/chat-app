@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    background-color: rgba(0,0,0,0.05)
+}
+
+.useravatar {
+    border-radius: 50%;
+    width: 50px;
+}
+
+.name {
+    margin-left: 10px;
+}
