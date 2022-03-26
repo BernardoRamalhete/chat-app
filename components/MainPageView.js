@@ -15,7 +15,7 @@ function MainPageView({modalValue}) {
 
             <div className={styles.text}>
 
-                <p>Over there you will be able to add new contacts using their google account's email!</p>
+                <p>Over there you will be able to add new contacts using their google account&apos;s email!</p>
                 <p>When they enter Chat App they will receive any messages you sended and will be able to responde.</p>
 
             </div>

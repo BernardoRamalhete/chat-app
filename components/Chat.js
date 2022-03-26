@@ -6,6 +6,7 @@ import { auth, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 function Chat({id, users}) {
     const router = useRouter()
@@ -22,7 +23,7 @@ function Chat({id, users}) {
   return (
     <>
       <div className={styles.container} onClick={enterChat}>
-          {thisuser ? <img src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '50px', height: '50px'}}/>
+          {thisuser ? <Image src={thisuser.photoURL} alt= 'user avatar' className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '50px', height: '50px'}}/>
           }
           <p className={styles.name}>{thisuser ? thisuser.name : email}</p>
       </div>
