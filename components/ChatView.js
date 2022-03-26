@@ -10,8 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import firebase from 'firebase/compat/app'
 import getEmail from '../lib/getEmail'
 import TimeAgo from 'timeago-react'
-import DeleteIcon from '@mui/icons-material/Delete';
-import Image from 'next/image'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 function ChatView({chat, messages, thisuser}) {
     const [user] = useAuthState(auth)
@@ -79,7 +78,7 @@ function ChatView({chat, messages, thisuser}) {
     return (
     <div className={styles.container}>
         <div className={styles.header}>
-            {thisuser ? <Image src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '70px', height: '70px'} } alt='logged user avatar'/>}
+            {thisuser ? <img src={thisuser.photoURL} className={styles.useravatar}/> : <AccountCircleIcon sx={{width: '70px', height: '70px'} } alt='logged user avatar'/>}
 
             <div className={styles.headerinfo}>
                 <div className={styles.textinfo}>
