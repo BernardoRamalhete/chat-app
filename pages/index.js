@@ -15,7 +15,7 @@ export default function Home() {
 
   }
 
-  useEffect(()=> {console.log(modalValue)}, [modalValue])
+  useEffect(()=> {}, [modalValue])
 
   return (
     <div >
