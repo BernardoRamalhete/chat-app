@@ -109,7 +109,7 @@ This is the main NEXT file, the one that makes the connection between NEXT and a
 <h2></h2>
 
 <h3 align='center'>Is this webapp finished?</h3>
-<p>Short answer: no. I don't consider any project really finished, that's always some new featured to be implemented, some refactoring that could be done and some minor bugs that fly over our heads. But it's in a usable state and I am glad and proud of out it come out in this stage!</p>
+<p>Short answer: no. I don't consider any project really finished, that's always some new featured to be implemented, some refactoring that could be done and some minor bugs that fly over our heads. But it's in a usable state and I am glad and proud of how it came out in this stage!</p>
  <p>&nbsp</p>
 
 <h2></h2>
